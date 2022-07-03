@@ -1,0 +1,1 @@
+#define FIESTA_DEPTH_TYPE sensor_msgs::PointCloud2::ConstPtr

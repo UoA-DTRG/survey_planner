@@ -1,0 +1,67 @@
+<launch>
+    <node pkg="path_opt" type="bspline_opt_test" name="test" output="screen" required="true">
+        <!-- Optimizer settings -->
+        <!-- <param name="opt/collision_weight" value="10000.0" />
+        <param name="opt/collision_min_distance" value="0.8" />
+        <param name="opt/acceleration_weight_x" value="20.0" />
+        <param name="opt/acceleration_weight_y" value="20.0" />
+        <param name="opt/acceleration_weight_z" value="100.0" />
+        <param name="opt/max_acc_weight_x" value="1000.0" />
+        <param name="opt/max_acc_weight_y" value="1000.0" />
+        <param name="opt/max_acc_weight_z" value="1000.0" />
+        <param name="opt/max_acc_x" value="100.0" />
+        <param name="opt/max_acc_y" value="100.0" />
+        <param name="opt/max_acc_z" value="30.0" />
+        <param name="opt/start_end_position_weight_x" value="1000.0" />
+        <param name="opt/start_end_position_weight_y" value="1000.0" />
+        <param name="opt/start_end_position_weight_z" value="1000.0" />
+        <param name="opt/start_end_position_tolerance" value="0.2" />
+        <param name="opt/velocity_weight_x" value="100.0" />
+        <param name="opt/velocity_weight_y" value="100.0" />
+        <param name="opt/velocity_weight_z" value="100.0" />
+        <param name="opt/max_vel_weight_x" value="100.0" />
+        <param name="opt/max_vel_weight_y" value="100.0" />
+        <param name="opt/max_vel_weight_z" value="1000.0" />
+        <param name="opt/max_vel_x" value="8.0" />
+        <param name="opt/max_vel_y" value="8.0" />
+        <param name="opt/max_vel_z" value="0.5" />
+        <param name="opt/time_cost" value="10.0" />
+        <param name="opt/vfov_enabled" value="true" />
+        <param name="opt/vfov_cost" value="500.0" />
+        <param name="opt/vfov" value="1.047" />
+        <param name="opt/hfov_enabled" value="true" />
+        <param name="opt/hfov_cost" value="5000.0" />
+        <param name="opt/hfov" value="1.047" /> -->
+        <param name="opt/collision_weight" value="2000.0" />
+        <param name="opt/collision_min_distance" value="1.5" />
+        <param name="opt/acceleration_weight_x" value="10.0" />
+        <param name="opt/acceleration_weight_y" value="10.0" />
+        <param name="opt/acceleration_weight_z" value="20.0" />
+        <param name="opt/max_acc_weight_x" value="10.0" />
+        <param name="opt/max_acc_weight_y" value="10.0" />
+        <param name="opt/max_acc_weight_z" value="10.0" />
+        <param name="opt/max_acc_x" value="5.0" />
+        <param name="opt/max_acc_y" value="5.0" />
+        <param name="opt/max_acc_z" value="3.0" />
+        <param name="opt/start_end_position_weight_x" value="1000.0" />
+        <param name="opt/start_end_position_weight_y" value="1000.0" />
+        <param name="opt/start_end_position_weight_z" value="1000.0" />
+        <param name="opt/start_end_position_tolerance" value="0.2" />
+        <param name="opt/velocity_weight_x" value="50.0" />
+        <param name="opt/velocity_weight_y" value="50.0" />
+        <param name="opt/velocity_weight_z" value="50.0" />
+        <param name="opt/max_vel_weight_x" value="100.0" />
+        <param name="opt/max_vel_weight_y" value="100.0" />
+        <param name="opt/max_vel_weight_z" value="1000.0" />
+        <param name="opt/max_vel_x" value="4.0" />
+        <param name="opt/max_vel_y" value="4.0" />
+        <param name="opt/max_vel_z" value="1.0" />
+        <param name="opt/time_cost" value="100.0" />
+        <param name="opt/vfov_enabled" value="true" />
+        <param name="opt/vfov_cost" value="500.0" />
+        <param name="opt/vfov" value="1.047" />
+        <param name="opt/hfov_enabled" value="true" />
+        <param name="opt/hfov_cost" value="500000.0" />
+        <param name="opt/hfov" value="0.02" />
+    </node>
+</launch>
