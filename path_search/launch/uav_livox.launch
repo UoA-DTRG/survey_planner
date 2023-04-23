@@ -1,0 +1,113 @@
+<launch>
+    <node pkg="path_search" type="path_search_node" name="path_search" output="screen" required="true">
+
+        <param name="resolution" value="0.2"/>
+        <param name="update_esdf_every_n_sec" value="0.1"/>
+
+        <!--Hash Table only-->
+        <param name="reserved_size" value="1000000"/>
+
+        <!--Array only-->
+        <param name="lx" value="-20.0"/>
+        <param name="ly" value="-20.0"/>
+        <param name="lz" value="-1.6"/>
+        <param name="rx" value="+20.0"/>
+        <param name="ry" value="+20.0"/>
+        <param name="rz" value="+2"/>
+
+        <!-- raycasting parameters -->
+        <param name="min_ray_length" value="0.1"/>
+        <param name="max_ray_length" value="40.0"/>
+        <!--If hash table is used, make sure the value is 0. In array implementation, 0 means no other thread.-->
+        <param name="ray_cast_num_thread" value="0"/>
+
+        <!-- needed when using depth image-->
+        <param name="focal_x" value="227.342"/>
+        <param name="focal_y" value="227.342"/>
+        <param name="center_x" value="242.5"/>
+        <param name="center_y" value="120.5"/>
+
+        <!-- probabilistic grid map -->
+        <param name="p_hit" value="0.70"/>
+        <param name="p_miss" value="0.35"/>
+        <param name="p_min" value="0.12"/>
+        <param name="p_max" value="0.97"/>
+        <param name="p_occ" value="0.80"/>
+
+        <!-- global / local -->
+        <param name="global_map" value="true"/>
+        <param name="global_update" value="true"/>
+        <param name="global_vis" value="true"/>
+        <param name="radius_x" value="5.0"/>
+        <param name="radius_y" value="5.0"/>
+        <param name="radius_z" value="3.0"/>
+
+        <!--depth_filter -->
+        <param name="use_depth_filter" value="false"/>
+        <param name="depth_filter_tolerance" value="0.1"/>
+        <param name="depth_filter_max_dist" value="30.0"/>
+        <param name="depth_filter_min_dist" value="0.1"/>
+        <!--unit: pixel-->
+        <param name="depth_filter_margin" value="0"/>
+        <param name="unexplored_update_range" value="1.5"/>
+
+        <!-- visulization -->
+        <!--0 for no visulize-->
+        <param name="visualize_every_n_updates" value="10"/>
+        <param name="slice_vis_max_dist" value="20.0"/>
+        <!-- relative to the lz if array is used, relative to the origin if hash table is used -->
+        <param name="slice_vis_level" value="2.5"/>
+        <param name="vis_lower_bound" value="-5"/>
+        <param name="vis_upper_bound" value="+10"/>
+
+        <!-- subsribe source -->
+        <!--<remap from="~pointcloud" to="/camera/depth/color/points"/>-->
+        <!--remap from="~depth" to="/uav/d400/depth/image_rect_raw"/-->
+        <remap from="~depth" to="/livox/lidar"/>
+        <remap from="~transform" to="/mavros/local_position/pose"/>
+
+        <!-- Frames -->
+        <param name="world_frame" value="world"/>
+        <param name="camera_frame" value="livox_frame"/>
+
+        <!-- Planner parameters -->
+        <param name="odom_frame" value="world" />
+        <param name="fcu_frame" value="body" />
+        <param name="min_distance_to_obstacle" value="0.8" />
+        <param name="robot_radius" value="0.4" />
+        <param name="clear_radius" value="0.6" />
+        <param name="target_row_velocity" value="1.0" />
+
+        <!-- MPC parameters -->
+        <param name="mpc_sample_time" value="0.1" />
+        <param name="trajectory_topic" value="/uav/target/trajectory" />
+        <param name="trajectory_index_topic" value="/uav/path/current_index" />
+
+        <!-- Optimizer settings -->
+        <param name="opt/collision_weight" value="10000.0" />
+        <param name="opt/collision_min_distance" value="1.2" />
+        <param name="opt/acceleration_weight_x" value="20.0" />
+        <param name="opt/acceleration_weight_y" value="20.0" />
+        <param name="opt/acceleration_weight_z" value="100.0" />
+        <param name="opt/max_acc_weight_x" value="100.0" />
+        <param name="opt/max_acc_weight_y" value="100.0" />
+        <param name="opt/max_acc_weight_z" value="100.0" />
+        <param name="opt/max_acc_x" value="5.0" />
+        <param name="opt/max_acc_y" value="5.0" />
+        <param name="opt/max_acc_z" value="3.0" />
+        <param name="opt/start_end_position_weight_x" value="1000.0" />
+        <param name="opt/start_end_position_weight_y" value="1000.0" />
+        <param name="opt/start_end_position_weight_z" value="1000.0" />
+        <param name="opt/start_end_position_tolerance" value="0.2" />
+        <param name="opt/velocity_weight_x" value="200.0" />
+        <param name="opt/velocity_weight_y" value="200.0" />
+        <param name="opt/velocity_weight_z" value="200.0" />
+        <param name="opt/max_vel_weight_x" value="100.0" />
+        <param name="opt/max_vel_weight_y" value="100.0" />
+        <param name="opt/max_vel_weight_z" value="1000.0" />
+        <param name="opt/max_vel_x" value="3.0" />
+        <param name="opt/max_vel_y" value="3.0" />
+        <param name="opt/max_vel_z" value="0.5" />
+        <param name="opt/time_cost" value="10.0" />
+    </node>
+</launch>
