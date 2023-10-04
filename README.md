@@ -1,5 +1,6 @@
 # Survey Planner
 This repository contains code for trajectory planning within complex, 3D spaces
+[![Autonomous UAV Flight in Plantation Forests](https://i.ytimg.com/vi/99vuafVdsUM/maxresdefault.jpg)](https://www.youtube.com/watch?v=99vuafVdsUM "Autonomous UAV Flight in Plantation Forests")   
 
 ## Prerequisites
 While this repository should remain compatible with other versions of ROS1/PX4, it has been developed and tested with the following:
